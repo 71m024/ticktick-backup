@@ -25,6 +25,5 @@ let response = await (
 if (response.error) {
   throw new Error(`${response.error}: ${response.error_description}`);
 }
-let accessToken = response.access_token;
 
-console.log(accessToken);
+console.log(response);
