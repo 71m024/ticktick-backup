@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import GetAccessToken from './src/getAccessToken.js';
+import getAccessToken from './src/getAccessToken.js';
 dotenv.config()
 
-const accessToken = await GetAccessToken();
+const accessToken = await getAccessToken();
 console.log(accessToken);
