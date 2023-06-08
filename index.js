@@ -14,5 +14,18 @@ const projects = await request('/open/v1/project', {
   redirect: 'follow'
 })
 
-// for each project, get the tasks
-// it looks like the task-by-id endpoint is useless
+const projectsWithTasks = []
+for (const p of projects) {
+  console.log(`load project data for: ${p.name}`)
+  projectsWithTasks.push(
+    await request(`/open/v1/project/${p.id}/data`, {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+  }))
+}
+
+console.log(projectsWithTasks)
+
+// try to solve the problem with the query limit
+// store everything in csv
