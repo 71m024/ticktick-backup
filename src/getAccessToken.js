@@ -31,5 +31,5 @@ async function getNewAccessToken() {
     redirect: 'follow'
   }
 
-  return await request('/oauth/token', requestOptions).access_token
+  return (await request('/oauth/token', requestOptions)).access_token
 }
