@@ -1,5 +1,5 @@
 import fs from 'fs';
-import request from "./request.js";
+import request from "./RequestManager.js";
 
 export default async function getAccessToken() {
   const accessTokenPath = './access-token'
