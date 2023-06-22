@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs';
 import request from "./request.js";
 
 export default async function getAccessToken() {
