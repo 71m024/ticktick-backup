@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node index.js -- --use-cache"
   },
   "type": "module",
   "keywords": [],

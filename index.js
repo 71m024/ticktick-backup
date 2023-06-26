@@ -7,8 +7,10 @@ const cachePath = './cache.json'
 let projectsWithTasks = []
 
 if (process.argv.includes('--use-cache') && fs.existsSync(cachePath)) {
-  projectsWithTasks = JSON.parse(fs.readFileSync(cachePath))
+  console.log('load data projects from cache')
+  projectsWithTasks = JSON.parse(fs.readFileSync(cachePath).toString())
 } else {
+  console.log('load projects from api')
   const requestManager = new RequestManager()
   const projects = await requestManager.request('/open/v1/project')
 
@@ -16,10 +18,8 @@ if (process.argv.includes('--use-cache') && fs.existsSync(cachePath)) {
     console.log(`load project data for: ${p.name}`)
     projectsWithTasks.push(await requestManager.request(`/open/v1/project/${p.id}/data`))
   }
-  fs.writeFileSync('./data.json', JSON.stringify(projectsWithTasks))
+  fs.writeFileSync(cachePath, JSON.stringify(projectsWithTasks))
 }
-
-console.log(projectsWithTasks)
 
 // use cache with: node index.js --use-cache
 // store everything in csv
