@@ -1,15 +1,19 @@
 import * as dotenv from 'dotenv';
 import RequestManager from "./src/RequestManager.js";
 import fs from "fs";
+import {DateTime} from "luxon";
 dotenv.config();
 
 const cachePath = './cache.json'
 let projectsWithTasks = []
 
 if (process.argv.includes('--use-cache') && fs.existsSync(cachePath)) {
+
   console.log('load data projects from cache')
   projectsWithTasks = JSON.parse(fs.readFileSync(cachePath).toString())
+
 } else {
+
   console.log('load projects from api')
   const requestManager = new RequestManager()
   const projects = await requestManager.request('/open/v1/project')
@@ -19,7 +23,11 @@ if (process.argv.includes('--use-cache') && fs.existsSync(cachePath)) {
     projectsWithTasks.push(await requestManager.request(`/open/v1/project/${p.id}/data`))
   }
   fs.writeFileSync(cachePath, JSON.stringify(projectsWithTasks))
+
 }
 
-// use cache with: node index.js --use-cache
-// store everything in csv
+if (!fs.existsSync('data')){
+  fs.mkdirSync('data');
+}
+
+fs.writeFileSync('data/' + DateTime.now().toFormat('yyyy-MM-dd-HH-mm-ss') + '.json', JSON.stringify(projectsWithTasks))
