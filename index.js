@@ -1,7 +1,6 @@
 import * as dotenv from 'dotenv';
 import RequestManager from "./src/RequestManager.js";
 import fs from "fs";
-import {DateTime} from "luxon";
 dotenv.config();
 
 const cachePath = './cache.json'
@@ -30,4 +29,4 @@ if (!fs.existsSync('data')){
   fs.mkdirSync('data');
 }
 
-fs.writeFileSync('data/' + DateTime.now().toFormat('yyyy-MM-dd-HH-mm-ss') + '.json', JSON.stringify(projectsWithTasks))
+fs.writeFileSync('data.json', JSON.stringify(projectsWithTasks))
