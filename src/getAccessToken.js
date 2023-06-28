@@ -1,5 +1,5 @@
 import fs from 'fs';
-import request from "./RequestManager.js";
+import RequestManager from "./RequestManager.js";
 
 export default async function getAccessToken() {
   const accessTokenPath = './access-token'
@@ -13,6 +13,8 @@ export default async function getAccessToken() {
 }
 
 async function getNewAccessToken() {
+  const requestManager = new RequestManager()
+
   const myHeaders = new Headers()
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded")
 
@@ -31,5 +33,5 @@ async function getNewAccessToken() {
     redirect: 'follow'
   }
 
-  return (await request('/oauth/token', requestOptions)).access_token
+  return (await requestManager.request('/oauth/token', requestOptions, false)).access_token
 }
