@@ -25,8 +25,4 @@ if (process.argv.includes('--use-cache') && fs.existsSync(cachePath)) {
 
 }
 
-if (!fs.existsSync('data')){
-  fs.mkdirSync('data');
-}
-
 fs.writeFileSync('data.json', JSON.stringify(projectsWithTasks))

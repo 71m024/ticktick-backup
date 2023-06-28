@@ -1,5 +1,12 @@
 # TickTick Backup
 
+Depending on the amount of your data. This export can take some minutes (because of query limiting of ticktick).
+
+DISCLAIMER: This script is only for exporting the data. Import is not possible.  
+This script is intended to ensure that your ticktick data is not lost. The recovery in some form would still have to be implemented.
+
+## Instructions
+
 1. `git clone git@github.com:71m024/ticktick-backup.git`
 2. `cd ticktick-backup`
 3. `mv .env.example .env `
@@ -23,3 +30,7 @@
     * `OAUTH_REDIRECT_URI=` "https://oauthdebugger.com/debug"
 10. `npm install`
 11. `npm start`
+
+🎉 Your data should be exported in a new `data.json` file!
+
+DISCLAIMER: no guarantee, that the data is complete
