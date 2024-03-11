@@ -1,6 +1,6 @@
-# TickTick Backup
+# Automated TickTick Backup
 
-Depending on the amount of your data. This export can take some minutes (because of query limiting of ticktick).
+Depending on the amount of your data. This export can take some minutes (because of query limiting from ticktick).
 
 DISCLAIMER: This script is only for exporting the data. Import is not possible.  
 This script is intended to ensure that your ticktick data is not lost. The recovery in some form would still have to be implemented.
