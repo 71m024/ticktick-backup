@@ -24,7 +24,7 @@ async function getNewAccessToken() {
   urlencoded.append("client_id", process.env.OAUTH_CLIENT_ID)
   urlencoded.append("client_secret", process.env.OAUTH_CLIENT_SECRET)
   urlencoded.append("redirect_uri", process.env.OAUTH_REDIRECT_URI)
-  urlencoded.append("scope", "tasks:write tasks:read")
+  urlencoded.append("scope", "tasks:read")
 
   const requestOptions = {
     method: 'POST',

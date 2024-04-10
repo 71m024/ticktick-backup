@@ -16,7 +16,7 @@ This script is intended to ensure that your ticktick data is not lost. The recov
     - `Authorize URI:` https://ticktick.com/oauth/authorize
     - `Redirect URI:` https://oauthdebugger.com/debug
     - `Client ID:` from your app (step 5)
-    - `Scope:` tasks:write tasks:read
+    - `Scope:` tasks:read
     - `State:` some random characters
     - `Nonce:` some random characters
     - `Response type:` code
